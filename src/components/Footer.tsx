@@ -5,10 +5,10 @@ export default function Footer() {
         RITUAL CAFÉ
       </div>
       <div className="flex flex-wrap gap-6 font-serif italic text-sm text-ink">
-        <a className="no-underline opacity-80 hover:opacity-100 hover:text-brand-roast transition-colors" href="#">Journal</a>
-        <a className="no-underline opacity-80 hover:opacity-100 hover:text-brand-roast transition-colors" href="#">Roastery</a>
-        <a className="no-underline opacity-80 hover:opacity-100 hover:text-brand-roast transition-colors" href="#">Sourcing</a>
-        <a className="no-underline opacity-80 hover:opacity-100 hover:text-brand-roast transition-colors" href="#">Ethics</a>
+        <a className="no-underline opacity-80 hover:opacity-100 hover:text-brand-roast transition-colors" href="#">Diario</a>
+        <a className="no-underline opacity-80 hover:opacity-100 hover:text-brand-roast transition-colors" href="#">Tostaduría</a>
+        <a className="no-underline opacity-80 hover:opacity-100 hover:text-brand-roast transition-colors" href="#">Origen</a>
+        <a className="no-underline opacity-80 hover:opacity-100 hover:text-brand-roast transition-colors" href="#">Ética</a>
       </div>
       <div className="font-serif italic text-sm text-ink opacity-80">
         © 2024 RITUAL CAFÉ. BUILT FOR THE BOLD.
