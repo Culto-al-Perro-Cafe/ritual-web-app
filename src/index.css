@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-brand-ivory text-brand-ink;
+  }
+}
+
+@layer utilities {
+  .border-ink {
+    border-color: #222222;
+  }
+  .bg-ivory {
+    background-color: #faefdf;
+  }
+  .bg-sand {
+    background-color: #f2dab2;
+  }
+  .bg-roast {
+    background-color: #e4734c;
+  }
+  .bg-origin {
+    background-color: #2da598;
+  }
+  .text-ink {
+    color: #222222;
+  }
+  .text-white {
+    color: #ffffff;
+  }
+}
