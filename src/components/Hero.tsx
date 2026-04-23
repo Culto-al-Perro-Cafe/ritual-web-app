@@ -20,7 +20,7 @@ export default function Hero() {
           src="https://lh3.googleusercontent.com/aida-public/AB6AXuClcWy455S1_II5C5tPRlWw-CcystlFI3ZovK9l1G_YWeiMySsRgiSmBZ83kFQ0iDMi4ecMowYtl0UlES8y6gdebvbDgPCJDP9LZoMqhf5bKqy_Ty7c9nDDrTC1xW-KW954ivaOL7voVm_UEwdVsTLsfTHPyOV8MQDrVCUszrRvBa_BO4hAnY-MwhGBMyikS6PJQrVwB7WPOOr9YQNVSTpGRn0pRhdJ_BFH1RESXqLa1CBR6ayFL7QxnqsLPxEBTto3wdbBrOheN70"
         />
         <div className="absolute -bottom-6 -left-6 bg-brand-origin text-white px-4 py-2 border-2 border-ink shadow-hard font-label-bold text-label-bold uppercase">
-          V60 Ready
+          Listo para V60
         </div>
       </div>
     </section>
