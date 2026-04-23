@@ -11,7 +11,7 @@ export default function Footer() {
         <a className="no-underline opacity-80 hover:opacity-100 hover:text-brand-roast transition-colors" href="#">Ética</a>
       </div>
       <div className="font-serif italic text-sm text-ink opacity-80">
-        © 2024 RITUAL CAFÉ. BUILT FOR THE BOLD.
+        © 2026 RITUAL CAFÉ. CULTO AL PERRO CAFÉ.
       </div>
     </footer>
   );
