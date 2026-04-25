@@ -8,7 +8,7 @@ export default function Footer() {
         <a className="no-underline opacity-80 hover:opacity-100 hover:text-brand-roast transition-colors" href="#">Diario</a>
         <a className="no-underline opacity-80 hover:opacity-100 hover:text-brand-roast transition-colors" href="#">Tostaduría</a>
         <a className="no-underline opacity-80 hover:opacity-100 hover:text-brand-roast transition-colors" href="#">Origen</a>
-        <a className="no-underline opacity-80 hover:opacity-100 hover:text-brand-roast transition-colors" href="#">Ética</a>
+        <a className="no-underline opacity-80 hover:opacity-100 hover:text-brand-roast transition-colors" href="/privacidad">Privacidad</a>
       </div>
       <div className="font-serif italic text-sm text-ink opacity-80">
         © 2026 RITUAL CAFÉ. CULTO AL PERRO CAFÉ.
