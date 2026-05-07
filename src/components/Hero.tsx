@@ -7,66 +7,111 @@ const googlePlayBadgeUrl = 'https://play.google.com/intl/es-419/badges/static/im
 
 export default function Hero() {
   const [showDownloadOptions, setShowDownloadOptions] = useState(false);
+  const [showVideoModal, setShowVideoModal] = useState(false);
 
   return (
-    <section className="max-w-6xl mx-auto px-6 py-xl grid grid-cols-1 md:grid-cols-2 gap-xl items-center">
-      <div className="space-y-md">
-        <h1 className="font-h1 text-[64px] leading-none uppercase text-ink">PREPARA CAFÉ SIN BATALLAR</h1>
-        <p className="font-body-lg text-body-lg text-ink">Una app diseñada para seguir el ritual perfecto paso a paso.</p>
-        <div className="flex flex-col sm:flex-row gap-4 pt-4">
-          <button
-            aria-expanded={showDownloadOptions}
-            aria-controls="download-options"
-            className="bg-brand-roast text-white border-2 border-ink px-6 py-3 font-label-bold text-label-bold shadow-hard active:shadow-none active:translate-x-[2px] active:translate-y-[2px] transition-all uppercase text-center"
-            type="button"
-            onClick={() => setShowDownloadOptions((isVisible) => !isVisible)}
-          >
-            DESCARGAR LA APP
-          </button>
-          <button className="bg-brand-white text-ink border-2 border-ink px-6 py-3 font-label-bold text-label-bold shadow-hard active:shadow-none active:translate-x-[2px] active:translate-y-[2px] transition-all uppercase text-center">
-            Ver cómo funciona
-          </button>
-        </div>
-        {showDownloadOptions && (
-          <div id="download-options" className="flex flex-wrap gap-4 pt-2">
-            <a
-              className="inline-flex h-[44px] shadow-hard active:shadow-none active:translate-x-[2px] active:translate-y-[2px] transition-all"
-              href={appStoreUrl}
-              aria-label="Descargar en App Store"
-            >
-              <img
-                alt="Descargar en App Store"
-                className="h-full w-auto"
-                src={appStoreBadgeUrl}
-              />
-            </a>
+    <>
+      <section className="max-w-6xl mx-auto px-6 py-xl grid grid-cols-1 md:grid-cols-2 gap-xl items-center">
+        <div className="space-y-md">
+          <h1 className="font-h1 text-[64px] leading-none uppercase text-ink">PREPARA CAFÉ SIN BATALLAR</h1>
+          <p className="font-body-lg text-body-lg text-ink">Una app diseñada para seguir el ritual perfecto paso a paso.</p>
+          <div className="flex flex-col sm:flex-row gap-4 pt-4">
             <button
-              aria-disabled="true"
-              aria-label="Google Play no disponible"
-              className="inline-flex h-[44px] items-center cursor-not-allowed opacity-60 grayscale"
-              disabled
+              aria-expanded={showDownloadOptions}
+              aria-controls="download-options"
+              className="bg-brand-roast text-white border-2 border-ink px-6 py-3 font-label-bold text-label-bold shadow-hard active:shadow-none active:translate-x-[2px] active:translate-y-[2px] transition-all uppercase text-center"
               type="button"
-              title="Google Play en proceso"
+              onClick={() => setShowDownloadOptions((isVisible) => !isVisible)}
             >
-              <img
-                alt="Disponible en Google Play"
-                className="h-[54px] w-auto"
-                src={googlePlayBadgeUrl}
-              />
+              DESCARGAR LA APP
+            </button>
+            <button
+              type="button"
+              className="bg-brand-white text-ink border-2 border-ink px-6 py-3 font-label-bold text-label-bold shadow-hard active:shadow-none active:translate-x-[2px] active:translate-y-[2px] transition-all uppercase text-center"
+              onClick={() => setShowVideoModal(true)}
+            >
+              Ver cómo funciona
             </button>
           </div>
-        )}
-      </div>
-      <div className="relative bg-brand-sand border-3 border-ink shadow-hard h-96 flex items-center justify-center p-4 transform translate-x-4 translate-y-4">
-        <img 
-          alt="Minimalist overhead shot of a pour-over coffee setup with a digital scale and timer, high contrast, warm lighting" 
-          className="w-full h-full object-cover border-2 border-ink filter grayscale contrast-125" 
-          src={heroImage}
-        />
-        <div className="absolute -bottom-6 -left-6 bg-brand-origin text-white px-4 py-2 border-2 border-ink shadow-hard font-label-bold text-label-bold uppercase">
-          Listo para V60
+          {showDownloadOptions && (
+            <div id="download-options" className="flex flex-wrap gap-4 pt-2">
+              <a
+                className="inline-flex h-[44px] shadow-hard active:shadow-none active:translate-x-[2px] active:translate-y-[2px] transition-all"
+                href={appStoreUrl}
+                aria-label="Descargar en App Store"
+              >
+                <img
+                  alt="Descargar en App Store"
+                  className="h-full w-auto"
+                  src={appStoreBadgeUrl}
+                />
+              </a>
+              <button
+                aria-disabled="true"
+                aria-label="Google Play no disponible"
+                className="inline-flex h-[44px] items-center cursor-not-allowed opacity-60 grayscale"
+                disabled
+                type="button"
+                title="Google Play en proceso"
+              >
+                <img
+                  alt="Disponible en Google Play"
+                  className="h-[54px] w-auto"
+                  src={googlePlayBadgeUrl}
+                />
+              </button>
+            </div>
+          )}
         </div>
-      </div>
-    </section>
+        <div className="relative bg-brand-sand border-3 border-ink shadow-hard h-96 flex items-center justify-center p-4 transform translate-x-4 translate-y-4">
+          <img 
+            alt="Minimalist overhead shot of a pour-over coffee setup with a digital scale and timer, high contrast, warm lighting" 
+            className="w-full h-full object-cover border-2 border-ink filter grayscale contrast-125" 
+            src={heroImage}
+          />
+          <div className="absolute -bottom-6 -left-6 bg-brand-origin text-white px-4 py-2 border-2 border-ink shadow-hard font-label-bold text-label-bold uppercase">
+            Listo para V60
+          </div>
+        </div>
+      </section>
+
+      {showVideoModal && (
+        <div
+          aria-labelledby="video-modal-title"
+          aria-modal="true"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 px-4 py-8"
+          role="dialog"
+          onClick={() => setShowVideoModal(false)}
+        >
+          <div
+            className="relative w-full max-w-4xl bg-brand-ivory border-3 border-ink shadow-hard p-3 sm:p-4"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <div className="flex items-center justify-between gap-4 pb-3">
+              <h2 id="video-modal-title" className="font-label-bold text-label-bold uppercase text-ink">
+                Ver cómo funciona
+              </h2>
+              <button
+                aria-label="Cerrar video"
+                className="bg-brand-white text-ink border-2 border-ink h-10 w-10 font-label-bold text-label-bold shadow-hard active:shadow-none active:translate-x-[2px] active:translate-y-[2px] transition-all"
+                type="button"
+                onClick={() => setShowVideoModal(false)}
+              >
+                X
+              </button>
+            </div>
+            <div className="relative aspect-video w-full overflow-hidden border-2 border-ink bg-black">
+              <iframe
+                allow="autoplay; encrypted-media; picture-in-picture"
+                allowFullScreen
+                className="absolute inset-0 h-full w-full"
+                src="https://www.youtube.com/embed/2714eo4hbTk?autoplay=1&rel=0"
+                title="Video de Ritual Cafe"
+              />
+            </div>
+          </div>
+        </div>
+      )}
+    </>
   );
 }
