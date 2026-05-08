@@ -9,11 +9,11 @@ const sections = [
   },
   {
     title: "3. Analítica, rastreo y publicidad",
-    body: "Ritual Café no usa herramientas de rastreo, perfiles publicitarios ni analítica vinculada a tu identidad. Tampoco vende, renta ni comparte información personal con terceros.",
+    body: "Ritual Café usa TelemetryDeck para obtener analítica básica y respetuosa de la privacidad. Estos datos nos ayudan a entender el uso general de la app y mejorarla, pero no se usan para identificarte como persona. Ritual Café no usa rastreo publicitario, no crea perfiles para anuncios y no vende ni renta información personal.",
   },
   {
     title: "4. Servicios de terceros",
-    body: "La app no comparte datos personales con proveedores externos. Si en el futuro se incorpora una función que requiera servicios de terceros o recopilación de información, esta política se actualizará antes de activar esa función.",
+    body: "TelemetryDeck es el proveedor externo que usamos para analítica. La app no comparte datos personales con fines publicitarios. Si en el futuro se incorpora otra función que requiera servicios de terceros o recopilación de información, esta política se actualizará antes de activar esa función.",
   },
   {
     title: "5. Menores de edad",
@@ -30,7 +30,7 @@ export default function PrivacyPolicy() {
     <section className="max-w-4xl mx-auto px-6 py-xl space-y-10">
       <div className="space-y-4 border-b-3 border-ink pb-8">
         <p className="font-label-bold text-label-bold uppercase text-brand-roast">
-          Última actualización: 25 de abril de 2026
+          Última actualización: 7 de mayo de 2026
         </p>
         <h1 className="font-h1 text-[48px] md:text-[64px] leading-none uppercase text-ink">
           Política de Privacidad
