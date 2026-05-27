@@ -1,6 +1,7 @@
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
+import { PostHog } from "posthog-node";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const projectRoot = path.resolve(__dirname, "..");
@@ -8,6 +9,15 @@ const distDir = path.join(projectRoot, "dist");
 const templatePath = path.join(distDir, "index.html");
 const serverEntryPath = path.join(distDir, "server", "entry-server.js");
 const siteUrl = "https://ritual.otfusion.org";
+
+const posthog = process.env.VITE_POSTHOG_KEY
+  ? new PostHog(process.env.VITE_POSTHOG_KEY, {
+      host: process.env.VITE_POSTHOG_HOST,
+      flushAt: 1,
+      flushInterval: 0,
+      enableExceptionAutocapture: true,
+    })
+  : null;
 
 const template = await readFile(templatePath, "utf8");
 const { getRoutes, render } = await import(pathToFileURL(serverEntryPath).href);
@@ -121,3 +131,15 @@ Sitemap: ${siteUrl}/sitemap.xml
 
 await writeFile(path.join(distDir, "sitemap.xml"), sitemap);
 await writeFile(path.join(distDir, "robots.txt"), robots);
+
+if (posthog) {
+  posthog.capture({
+    distinctId: "build-system",
+    event: "site prerendered",
+    properties: {
+      page_count: routes.length,
+      pages: routes.map((r) => r.path),
+    },
+  });
+  await posthog.shutdown();
+}

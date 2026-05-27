@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import heroImage from '../assets/v60.png';
+import { posthog } from '../lib/posthog';
 
 const appStoreUrl = 'https://apps.apple.com/us/app/ritual-caf%C3%A9/id6764177904';
 const appStoreBadgeUrl = 'https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/es-mx?size=250x83';
@@ -21,14 +22,21 @@ export default function Hero() {
               aria-controls="download-options"
               className="bg-brand-roast text-white border-2 border-ink px-6 py-3 font-label-bold text-label-bold shadow-hard active:shadow-none active:translate-x-[2px] active:translate-y-[2px] transition-all uppercase text-center"
               type="button"
-              onClick={() => setShowDownloadOptions((isVisible) => !isVisible)}
+              onClick={() => {
+                const next = !showDownloadOptions;
+                setShowDownloadOptions(next);
+                if (next) posthog.capture('download cta clicked');
+              }}
             >
               DESCARGAR LA APP
             </button>
             <button
               type="button"
               className="bg-brand-white text-ink border-2 border-ink px-6 py-3 font-label-bold text-label-bold shadow-hard active:shadow-none active:translate-x-[2px] active:translate-y-[2px] transition-all uppercase text-center"
-              onClick={() => setShowVideoModal(true)}
+              onClick={() => {
+                setShowVideoModal(true);
+                posthog.capture('video modal opened');
+              }}
             >
               Ver cómo funciona
             </button>
@@ -39,6 +47,7 @@ export default function Hero() {
                 className="inline-flex h-[44px] shadow-hard active:shadow-none active:translate-x-[2px] active:translate-y-[2px] transition-all"
                 href={appStoreUrl}
                 aria-label="Descargar en App Store"
+                onClick={() => posthog.capture('app store download clicked', { platform: 'ios' })}
               >
                 <img
                   alt="Descargar en App Store"
@@ -81,7 +90,7 @@ export default function Hero() {
           aria-modal="true"
           className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 px-4 py-8"
           role="dialog"
-          onClick={() => setShowVideoModal(false)}
+          onClick={() => { setShowVideoModal(false); posthog.capture('video modal closed', { method: 'backdrop' }); }}
         >
           <div
             className="relative w-full max-w-4xl bg-brand-ivory border-3 border-ink shadow-hard p-3 sm:p-4"
@@ -95,7 +104,7 @@ export default function Hero() {
                 aria-label="Cerrar video"
                 className="bg-brand-white text-ink border-2 border-ink h-10 w-10 font-label-bold text-label-bold shadow-hard active:shadow-none active:translate-x-[2px] active:translate-y-[2px] transition-all"
                 type="button"
-                onClick={() => setShowVideoModal(false)}
+                onClick={() => { setShowVideoModal(false); posthog.capture('video modal closed', { method: 'button' }); }}
               >
                 X
               </button>
