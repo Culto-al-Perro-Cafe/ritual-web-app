@@ -23,7 +23,7 @@ export const v60Article: SeoArticle = {
       title: "Equipo e ingredientes",
       body: [
         "Necesitas un dripper V60, filtro de papel, jarra o taza resistente al calor, bascula, timer, tetera y cafe recien molido. Si tienes tetera de cuello de ganso, el control del vertido sera mas facil; si no, vierte mas lento y evita golpear directamente las paredes del filtro.",
-        "Usa 20 gramos de cafe y 320 gramos de agua para una taza grande o dos tazas pequenas. La proporcion 1:16 es un punto medio confiable: suficiente concentracion para sentir cuerpo, pero con agua suficiente para extraer dulzor y claridad. Si prefieres una taza mas intensa, prueba 1:15; si quieres algo mas ligero, prueba 1:17.",
+        "Usa 20 gramos de cafe y 320 gramos de agua para una taza grande o dos tazas pequeñas. La proporcion 1:16 es un punto medio confiable: suficiente concentracion para sentir cuerpo, pero con agua suficiente para extraer dulzor y claridad. Si prefieres una taza mas intensa, prueba 1:15; si quieres algo mas ligero, prueba 1:17.",
       ],
     },
     {
@@ -37,14 +37,14 @@ export const v60Article: SeoArticle = {
       title: "Metodo paso a paso",
       body: [
         "Coloca 20 gramos de cafe en el filtro, nivela la cama y arranca el timer. Vierte 50 gramos de agua en 10 a 15 segundos para saturar todo el cafe. Espera hasta el segundo 40. Esta fase, llamada bloom, permite que el cafe libere gas y ayuda a que los siguientes vertidos extraigan de forma mas pareja.",
-        "Del segundo 40 al 1:10, vierte hasta llegar a 160 gramos. Haz circulos pequenos al centro y evita llenar demasiado las paredes. Del 1:20 al 1:50, vierte hasta llegar a 240 gramos. Del 2:00 al 2:25, termina en 320 gramos. Da un movimiento suave al dripper o a la jarra para nivelar la cama y deja drenar.",
-        "El tiempo total ideal debe caer entre 2:45 y 3:15. Si terminas en 2:20 y la taza sabe acida, muele mas fino. Si termina arriba de 3:40 y sabe amarga o astringente, muele mas grueso. Mantener los vertidos constantes te permite saber que el cambio viene de la molienda y no de una tecnica distinta cada manana.",
+        "Del segundo 40 al 1:10, vierte hasta llegar a 160 gramos. Haz circulos pequeños al centro y evita llenar demasiado las paredes. Del 1:20 al 1:50, vierte hasta llegar a 240 gramos. Del 2:00 al 2:25, termina en 320 gramos. Da un movimiento suave al dripper o a la jarra para nivelar la cama y deja drenar.",
+        "El tiempo total ideal debe caer entre 2:45 y 3:15. Si terminas en 2:20 y la taza sabe acida, muele mas fino. Si termina arriba de 3:40 y sabe amarga o astringente, muele mas grueso. Mantener los vertidos constantes te permite saber que el cambio viene de la molienda y no de una tecnica distinta cada mañana.",
       ],
     },
     {
       title: "Como corregir la taza",
       body: [
-        "Si el cafe sabe agrio, salado o muy delgado, probablemente esta subextraido. Muele mas fino, sube un poco la temperatura o alarga el tiempo total. Cambia una sola variable por preparacion para entender que funciono. La V60 responde rapido a pequenos cambios, asi que no necesitas mover el molino demasiado.",
+        "Si el cafe sabe agrio, salado o muy delgado, probablemente esta subextraido. Muele mas fino, sube un poco la temperatura o alarga el tiempo total. Cambia una sola variable por preparacion para entender que funciono. La V60 responde rapido a pequeños cambios, asi que no necesitas mover el molino demasiado.",
         "Si el cafe sabe amargo, seco o raspa la lengua, probablemente esta sobreextraido o el drenado fue irregular. Muele mas grueso, baja la temperatura si el tueste es oscuro o cuida que el vertido no haga canales en la cama. Una cama plana al final no garantiza una taza perfecta, pero suele indicar que el agua paso de forma mas uniforme.",
       ],
     },
@@ -83,7 +83,7 @@ export const frenchPressArticle: SeoArticle = {
     {
       title: "Equipo e ingredientes",
       body: [
-        "Usa una prensa francesa limpia, bascula, timer, cuchara, agua caliente y cafe molido grueso. Para una prensa pequena, empieza con 30 gramos de cafe y 450 gramos de agua. Para una prensa mas grande, conserva la proporcion 1:15: por cada gramo de cafe, usa 15 gramos de agua.",
+        "Usa una prensa francesa limpia, bascula, timer, cuchara, agua caliente y cafe molido grueso. Para una prensa pequeña, empieza con 30 gramos de cafe y 450 gramos de agua. Para una prensa mas grande, conserva la proporcion 1:15: por cada gramo de cafe, usa 15 gramos de agua.",
         "La limpieza de la prensa cambia mucho el sabor. Los aceites viejos se pegan al vidrio, al metal y al filtro, y pueden volver rancia una taza aunque el cafe sea bueno. Lava bien la malla despues de cada uso y evita dejar cafe usado dentro de la prensa por horas.",
       ],
     },
@@ -113,7 +113,7 @@ export const frenchPressArticle: SeoArticle = {
       title: "Como usar Ritual Cafe con esta receta",
       body: [
         "Ritual Cafe te ayuda a separar la receta en fases faciles: infusion inicial, ruptura de capa, reposo y servido. En prensa francesa, el error mas comun es olvidar el tiempo o empujar el embolo demasiado pronto. Un timer por fases evita que la receta dependa de estar mirando el reloj.",
-        "Guarda esta base: 30 gramos de cafe, 450 gramos de agua, 4 minutos de infusion y 4 a 6 minutos de reposo. Si cambias el tamano de la prensa, conserva la proporcion 1:15 y ajusta solo la cantidad total. El metodo se mantiene estable aunque prepares una o varias tazas.",
+        "Guarda esta base: 30 gramos de cafe, 450 gramos de agua, 4 minutos de infusion y 4 a 6 minutos de reposo. Si cambias el tamaño de la prensa, conserva la proporcion 1:15 y ajusta solo la cantidad total. El metodo se mantiene estable aunque prepares una o varias tazas.",
       ],
     },
   ],
@@ -152,18 +152,18 @@ export const ratiosGuideArticle: SeoArticle = {
       title: "Como entender la molienda",
       body: [
         "La molienda controla que tan facil el agua extrae sabor del cafe. Molienda fina significa mas superficie de contacto y extraccion mas rapida. Molienda gruesa significa menos superficie y extraccion mas lenta. Pero en metodos de goteo, la molienda tambien cambia la velocidad de paso del agua: mas fino drena mas lento; mas grueso drena mas rapido.",
-        "Un buen punto de partida es medio fino para V60, medio para cafeteras de goteo y grueso para prensa francesa. No busques una descripcion perfecta del tamano: usa el sabor como guia. Si tu taza cambia al cambiar de cafe, es normal. Cafes distintos producen finos distintos y responden de manera diferente al mismo molino.",
+        "Un buen punto de partida es medio fino para V60, medio para cafeteras de goteo y grueso para prensa francesa. No busques una descripcion perfecta del tamaño: usa el sabor como guia. Si tu taza cambia al cambiar de cafe, es normal. Cafes distintos producen finos distintos y responden de manera diferente al mismo molino.",
       ],
     },
     {
-      title: "Senales de subextraccion",
+      title: "Señales de subextraccion",
       body: [
         "Una taza subextraida puede saber agria, salada, vegetal, hueca o demasiado rapida en boca. No siempre es acidez agradable. La acidez buena se siente clara y dulce; la subextraccion se siente punzante y corta. En filtrados, tambien puede aparecer cuando el agua paso muy rapido o cuando la cama de cafe quedo mal saturada.",
         "Para corregir, muele mas fino, sube la temperatura, aumenta un poco el tiempo de contacto o mejora la saturacion inicial. Cambia una variable a la vez. Si cambias molienda, temperatura y ratio en la misma preparacion, tal vez mejores la taza, pero no sabras que ajuste fue el importante.",
       ],
     },
     {
-      title: "Senales de sobreextraccion",
+      title: "Señales de sobreextraccion",
       body: [
         "Una taza sobreextraida puede saber amarga, seca, rasposa o vacia de dulzor. A veces se siente intensa, pero sin placer. En V60, puede pasar por molienda demasiado fina, drenado muy largo o canales que hacen que parte del cafe se extraiga de mas mientras otra parte queda corta.",
         "Para corregir, muele mas grueso, baja un poco la temperatura, reduce agitacion o acorta el tiempo total. En prensa francesa, evita empujar el embolo hasta el fondo y sirve con calma para no levantar sedimento. En cualquier metodo, si el problema aparece al final de la taza, revisa tambien limpieza y frescura del equipo.",
