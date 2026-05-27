@@ -12,16 +12,19 @@ export function render(path: string) {
       description: route.description,
       canonicalUrl: route.canonicalUrl,
       ogImage: route.ogImage,
+      robots: route.robots,
     },
   };
 }
 
 export function getRoutes() {
-  return routes.map(({ path, title, description, canonicalUrl, ogImage }) => ({
+  return routes.map(({ path, title, description, canonicalUrl, ogImage, robots, includeInSitemap }) => ({
     path,
     title,
     description,
     canonicalUrl,
     ogImage,
+    robots,
+    includeInSitemap,
   }));
 }

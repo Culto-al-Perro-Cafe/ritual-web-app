@@ -42,10 +42,14 @@ function buildHead(meta) {
   const description = escapeHtml(meta.description);
   const canonicalUrl = escapeHtml(meta.canonicalUrl);
   const ogImage = escapeHtml(meta.ogImage);
+  const robotsMeta = meta.robots
+    ? [`<meta name="robots" content="${escapeHtml(meta.robots)}" />`]
+    : [];
 
   return [
     `<title>${title}</title>`,
     `<meta name="description" content="${description}" />`,
+    ...robotsMeta,
     `<link rel="canonical" href="${canonicalUrl}" />`,
     `<meta property="og:type" content="website" />`,
     `<meta property="og:title" content="${title}" />`,
@@ -99,6 +103,7 @@ for (const route of routes) {
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${routes
+  .filter((route) => route.includeInSitemap !== false)
   .map(
     (route) => `  <url>
     <loc>${escapeHtml(route.canonicalUrl)}</loc>

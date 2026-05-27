@@ -1,6 +1,7 @@
 import type { ReactElement } from "react";
 import PrivacyPolicy from "./components/PrivacyPolicy";
 import HomePage from "./pages/HomePage";
+import NotFoundPage from "./pages/NotFoundPage";
 import SeoArticlePage from "./pages/SeoArticlePage";
 import { frenchPressArticle, ratiosGuideArticle, v60Article } from "./pages/articles";
 import { DEFAULT_OG_IMAGE, absoluteUrl } from "./seo/site";
@@ -11,6 +12,8 @@ export type PageMeta = {
   path: string;
   canonicalUrl: string;
   ogImage: string;
+  robots?: string;
+  includeInSitemap?: boolean;
 };
 
 export type SiteRoute = PageMeta & {
@@ -61,9 +64,20 @@ export const routes: SiteRoute[] = [
     ogImage: absoluteUrl(DEFAULT_OG_IMAGE),
     render: () => <PrivacyPolicy />,
   },
+  {
+    path: "/404",
+    title: "Pagina no encontrada | Ritual Cafe",
+    description:
+      "La pagina que buscas no existe. Encuentra recetas de cafe, guias de proporcion y molienda, o vuelve al inicio de Ritual Cafe.",
+    canonicalUrl: absoluteUrl("/404"),
+    ogImage: absoluteUrl(DEFAULT_OG_IMAGE),
+    robots: "noindex, follow",
+    includeInSitemap: false,
+    render: () => <NotFoundPage />,
+  },
 ];
 
-export const fallbackRoute = routes[0];
+export const notFoundRoute = routes.find((route) => route.path === "/404") ?? routes[0];
 
 export function normalizePath(pathname: string) {
   const cleanPath = pathname.replace(/\/$/, "") || "/";
@@ -72,5 +86,5 @@ export function normalizePath(pathname: string) {
 
 export function findRoute(pathname: string) {
   const cleanPath = normalizePath(pathname);
-  return routes.find((route) => route.path === cleanPath) ?? fallbackRoute;
+  return routes.find((route) => route.path === cleanPath) ?? notFoundRoute;
 }
