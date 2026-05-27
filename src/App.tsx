@@ -1,29 +1,27 @@
 import Header from "./components/Header";
-import Hero from "./components/Hero";
-import ProblemInsight from "./components/ProblemInsight";
-import FeatureGrid from "./components/FeatureGrid";
 import Footer from "./components/Footer";
-import PrivacyPolicy from "./components/PrivacyPolicy";
+import { findRoute } from "./routes";
 
-function HomePage() {
-  return (
-    <>
-      <Hero />
-      <ProblemInsight />
-      <FeatureGrid />
-    </>
-  );
+type AppProps = {
+  path?: string;
+};
+
+function getCurrentPath() {
+  if (typeof window === "undefined") {
+    return "/";
+  }
+
+  return window.location.pathname;
 }
 
-function App() {
-  const path = window.location.pathname.replace(/\/$/, "") || "/";
-  const page = path === "/privacidad" ? <PrivacyPolicy /> : <HomePage />;
+function App({ path = getCurrentPath() }: AppProps) {
+  const page = findRoute(path);
 
   return (
     <>
       <Header />
       <main className="flex-grow pt-24 pb-32">
-        {page}
+        {page.render()}
       </main>
       <Footer />
     </>
