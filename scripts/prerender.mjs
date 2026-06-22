@@ -8,7 +8,6 @@ const projectRoot = path.resolve(__dirname, "..");
 const distDir = path.join(projectRoot, "dist");
 const templatePath = path.join(distDir, "index.html");
 const serverEntryPath = path.join(distDir, "server", "entry-server.js");
-const siteUrl = "https://ritual.otfusion.org";
 
 const posthog = process.env.VITE_POSTHOG_KEY
   ? new PostHog(process.env.VITE_POSTHOG_KEY, {
@@ -22,6 +21,7 @@ const posthog = process.env.VITE_POSTHOG_KEY
 const template = await readFile(templatePath, "utf8");
 const { getRoutes, render } = await import(pathToFileURL(serverEntryPath).href);
 const routes = getRoutes();
+const siteUrl = new URL(routes.find((route) => route.path === "/")?.canonicalUrl ?? routes[0].canonicalUrl).origin;
 
 function escapeHtml(value) {
   return value

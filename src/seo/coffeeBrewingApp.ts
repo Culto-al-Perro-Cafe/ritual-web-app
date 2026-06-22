@@ -1,3 +1,5 @@
+import { absoluteUrl } from "./site";
+
 export type CoffeeBrewingAppLocale = "en" | "es";
 
 type Card = {
@@ -484,7 +486,7 @@ export const coffeeBrewingAppContent: Record<CoffeeBrewingAppLocale, CoffeeBrewi
 
 export function coffeeBrewingAppJsonLd(locale: CoffeeBrewingAppLocale) {
   const content = coffeeBrewingAppContent[locale];
-  const url = `https://ritual.otfusion.org${content.path}`;
+  const url = absoluteUrl(content.path);
 
   return [
     {
@@ -513,7 +515,7 @@ export function coffeeBrewingAppJsonLd(locale: CoffeeBrewingAppLocale) {
       isPartOf: {
         "@type": "WebSite",
         name: "Ritual Cafe",
-        url: "https://ritual.otfusion.org/",
+        url: absoluteUrl("/"),
       },
       keywords: content.keywords,
     },
