@@ -31,6 +31,10 @@ function escapeHtml(value) {
     .replaceAll('"', "&quot;");
 }
 
+function escapeJsonScript(value) {
+  return JSON.stringify(value).replaceAll("</", "<\\/");
+}
+
 function routeOutputPath(routePath) {
   if (routePath === "/") {
     return path.join(distDir, "index.html");
@@ -52,8 +56,21 @@ function buildHead(meta) {
   const description = escapeHtml(meta.description);
   const canonicalUrl = escapeHtml(meta.canonicalUrl);
   const ogImage = escapeHtml(meta.ogImage);
+  const ogTitle = escapeHtml(meta.ogTitle ?? meta.title);
+  const ogDescription = escapeHtml(meta.ogDescription ?? meta.description);
+  const alternateLanguages = meta.alternateLanguages
+    ? Object.entries(meta.alternateLanguages).map(
+        ([language, href]) =>
+          `<link rel="alternate" hreflang="${escapeHtml(language)}" href="${escapeHtml(href)}" />`,
+      )
+    : [];
   const robotsMeta = meta.robots
     ? [`<meta name="robots" content="${escapeHtml(meta.robots)}" />`]
+    : [];
+  const structuredData = Array.isArray(meta.structuredData)
+    ? meta.structuredData.map(
+        (schema) => `<script type="application/ld+json">${escapeJsonScript(schema)}</script>`,
+      )
     : [];
 
   return [
@@ -61,9 +78,10 @@ function buildHead(meta) {
     `<meta name="description" content="${description}" />`,
     ...robotsMeta,
     `<link rel="canonical" href="${canonicalUrl}" />`,
+    ...alternateLanguages,
     `<meta property="og:type" content="website" />`,
-    `<meta property="og:title" content="${title}" />`,
-    `<meta property="og:description" content="${description}" />`,
+    `<meta property="og:title" content="${ogTitle}" />`,
+    `<meta property="og:description" content="${ogDescription}" />`,
     `<meta property="og:url" content="${canonicalUrl}" />`,
     `<meta property="og:image" content="${ogImage}" />`,
     `<meta property="og:image:type" content="image/png" />`,
@@ -71,20 +89,24 @@ function buildHead(meta) {
     `<meta property="og:image:height" content="500" />`,
     `<meta property="og:image:alt" content="Ritual Cafe banner with pour-over coffee illustration." />`,
     `<meta name="twitter:card" content="summary_large_image" />`,
-    `<meta name="twitter:title" content="${title}" />`,
-    `<meta name="twitter:description" content="${description}" />`,
+    `<meta name="twitter:title" content="${ogTitle}" />`,
+    `<meta name="twitter:description" content="${ogDescription}" />`,
     `<meta name="twitter:image" content="${ogImage}" />`,
     `<meta name="twitter:image:alt" content="Ritual Cafe banner with pour-over coffee illustration." />`,
+    ...structuredData,
   ].join("\n  ");
 }
 
 function replaceSeoHead(html, meta) {
   const cleaned = html
+    .replace(/<html lang="[\s\S]*?">/, `<html lang="${escapeHtml(meta.lang ?? "es")}">`)
     .replace(/\s*<title>[\s\S]*?<\/title>/, "")
     .replace(/\s*<meta name="description" content="[\s\S]*?" \/>/g, "")
     .replace(/\s*<link rel="canonical" href="[\s\S]*?" \/>/g, "")
+    .replace(/\s*<link rel="alternate" hreflang="[\s\S]*?" href="[\s\S]*?" \/>/g, "")
     .replace(/\s*<meta property="og:[\s\S]*?" content="[\s\S]*?" \/>/g, "")
-    .replace(/\s*<meta name="twitter:[\s\S]*?" content="[\s\S]*?" \/>/g, "");
+    .replace(/\s*<meta name="twitter:[\s\S]*?" content="[\s\S]*?" \/>/g, "")
+    .replace(/\s*<script type="application\/ld\+json">[\s\S]*?<\/script>/g, "");
 
   return cleaned.replace(
     /(<meta name="viewport" content="width=device-width, initial-scale=1.0" \/>)/,

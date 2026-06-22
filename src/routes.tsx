@@ -1,9 +1,11 @@
 import type { ReactElement } from "react";
 import PrivacyPolicy from "./components/PrivacyPolicy";
+import CoffeeBrewingAppPage from "./pages/CoffeeBrewingAppPage";
 import HomePage from "./pages/HomePage";
 import NotFoundPage from "./pages/NotFoundPage";
 import SeoArticlePage from "./pages/SeoArticlePage";
 import { frenchPressArticle, ratiosGuideArticle, v60Article } from "./pages/articles";
+import { coffeeBrewingAppContent, coffeeBrewingAppJsonLd } from "./seo/coffeeBrewingApp";
 import { DEFAULT_OG_IMAGE, absoluteUrl } from "./seo/site";
 
 export type PageMeta = {
@@ -12,12 +14,23 @@ export type PageMeta = {
   path: string;
   canonicalUrl: string;
   ogImage: string;
+  ogTitle?: string;
+  ogDescription?: string;
+  lang?: string;
+  alternateLanguages?: Record<string, string>;
   robots?: string;
   includeInSitemap?: boolean;
+  structuredData?: unknown[];
 };
 
 export type SiteRoute = PageMeta & {
   render: () => ReactElement;
+};
+
+const coffeeBrewingAlternates = {
+  en: absoluteUrl(coffeeBrewingAppContent.en.path),
+  es: absoluteUrl(coffeeBrewingAppContent.es.path),
+  "x-default": absoluteUrl(coffeeBrewingAppContent.en.path),
 };
 
 export const routes: SiteRoute[] = [
@@ -27,6 +40,16 @@ export const routes: SiteRoute[] = [
     description: "Una app para preparar cafe manual paso a paso con recetas, timer y proporciones claras.",
     canonicalUrl: absoluteUrl("/"),
     ogImage: absoluteUrl(DEFAULT_OG_IMAGE),
+    render: () => <HomePage />,
+  },
+  {
+    path: "/home",
+    title: "Ritual Cafe | Prepara cafe sin pensar",
+    description: "Una app para preparar cafe manual paso a paso con recetas, timer y proporciones claras.",
+    canonicalUrl: absoluteUrl("/"),
+    ogImage: absoluteUrl(DEFAULT_OG_IMAGE),
+    robots: "noindex, follow",
+    includeInSitemap: false,
     render: () => <HomePage />,
   },
   {
@@ -55,6 +78,32 @@ export const routes: SiteRoute[] = [
     canonicalUrl: absoluteUrl("/guias/proporciones-molienda"),
     ogImage: absoluteUrl(DEFAULT_OG_IMAGE),
     render: () => <SeoArticlePage article={ratiosGuideArticle} />,
+  },
+  {
+    path: "/coffee-brewing-app",
+    title: coffeeBrewingAppContent.en.title,
+    description: coffeeBrewingAppContent.en.description,
+    canonicalUrl: absoluteUrl("/coffee-brewing-app"),
+    ogImage: absoluteUrl(DEFAULT_OG_IMAGE),
+    ogTitle: coffeeBrewingAppContent.en.ogTitle,
+    ogDescription: coffeeBrewingAppContent.en.ogDescription,
+    lang: coffeeBrewingAppContent.en.lang,
+    alternateLanguages: coffeeBrewingAlternates,
+    structuredData: coffeeBrewingAppJsonLd("en"),
+    render: () => <CoffeeBrewingAppPage locale="en" />,
+  },
+  {
+    path: "/es/app-para-preparar-cafe",
+    title: coffeeBrewingAppContent.es.title,
+    description: coffeeBrewingAppContent.es.description,
+    canonicalUrl: absoluteUrl("/es/app-para-preparar-cafe"),
+    ogImage: absoluteUrl(DEFAULT_OG_IMAGE),
+    ogTitle: coffeeBrewingAppContent.es.ogTitle,
+    ogDescription: coffeeBrewingAppContent.es.ogDescription,
+    lang: coffeeBrewingAppContent.es.lang,
+    alternateLanguages: coffeeBrewingAlternates,
+    structuredData: coffeeBrewingAppJsonLd("es"),
+    render: () => <CoffeeBrewingAppPage locale="es" />,
   },
   {
     path: "/privacidad",
