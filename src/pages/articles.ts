@@ -1,10 +1,17 @@
 import type { SeoArticle } from "./SeoArticlePage";
 
 export const v60Article: SeoArticle = {
+  path: "/recetas/v60",
   kicker: "Receta gratis",
   title: "Receta V60 clara para cafe filtrado en casa",
+  description:
+    "Aprende una receta V60 clara con ratio 1:16, molienda media fina, tiempos de vertido y ajustes para mejorar tu cafe filtrado.",
   intro:
     "Una receta V60 pensada para preparar una taza limpia, dulce y repetible sin tener que memorizar cada vertido. Funciona como punto de partida para cafes de tueste medio o claro, y se puede ajustar con molienda, proporcion y tiempo total.",
+  datePublished: "2026-07-07",
+  dateModified: "2026-07-07",
+  authorId: "joseSalcido",
+  keywords: ["receta V60", "cafe filtrado", "pour over", "molienda V60", "Ritual Cafe"],
   details: [
     { label: "Metodo", value: "V60" },
     { label: "Ratio", value: "1:16" },
@@ -62,10 +69,17 @@ export const v60Article: SeoArticle = {
 };
 
 export const frenchPressArticle: SeoArticle = {
+  path: "/recetas/prensa-francesa",
   kicker: "Receta gratis",
   title: "Receta de prensa francesa con cuerpo y menos sedimento",
+  description:
+    "Prepara cafe en prensa francesa con cuerpo, dulzor y menos sedimento usando molienda gruesa, ratio 1:15 y reposo controlado.",
   intro:
     "Una receta de prensa francesa para preparar cafe con cuerpo, dulzor y textura sin terminar con una taza lodosa. La clave esta en usar molienda gruesa, respetar la infusion y separar el cafe sin agitar de mas.",
+  datePublished: "2026-07-07",
+  dateModified: "2026-07-07",
+  authorId: "joseSalcido",
+  keywords: ["prensa francesa", "receta de cafe", "molienda gruesa", "cafe de inmersion", "Ritual Cafe"],
   details: [
     { label: "Metodo", value: "Prensa" },
     { label: "Ratio", value: "1:15" },
@@ -123,10 +137,17 @@ export const frenchPressArticle: SeoArticle = {
 };
 
 export const ratiosGuideArticle: SeoArticle = {
+  path: "/guias/proporciones-molienda",
   kicker: "Guia de preparacion",
   title: "Proporciones y molienda para preparar mejor cafe",
+  description:
+    "Guia practica para elegir ratios, ajustar molienda y corregir cafe agrio, amargo, delgado o astringente en metodos manuales.",
   intro:
     "Una guia practica para entender cuanto cafe usar, cuanta agua agregar y como ajustar la molienda cuando la taza no sale como esperabas. Sirve para V60, prensa francesa y otros metodos manuales.",
+  datePublished: "2026-07-07",
+  dateModified: "2026-07-07",
+  authorId: "joseSalcido",
+  keywords: ["proporciones de cafe", "molienda de cafe", "ratio cafe agua", "extraccion de cafe", "Ritual Cafe"],
   details: [
     { label: "Tema", value: "Extraccion" },
     { label: "Base", value: "Ratio" },

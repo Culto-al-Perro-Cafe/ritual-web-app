@@ -1,11 +1,14 @@
 import type { ReactElement } from "react";
 import PrivacyPolicy from "./components/PrivacyPolicy";
+import AuthorProfilePage from "./pages/AuthorProfilePage";
 import CoffeeBrewingAppPage from "./pages/CoffeeBrewingAppPage";
 import HomePage from "./pages/HomePage";
 import NotFoundPage from "./pages/NotFoundPage";
 import SeoArticlePage from "./pages/SeoArticlePage";
 import { frenchPressArticle, ratiosGuideArticle, v60Article } from "./pages/articles";
+import { getAuthor } from "./seo/authors";
 import { coffeeBrewingAppContent, coffeeBrewingAppJsonLd } from "./seo/coffeeBrewingApp";
+import { blogPostingSchema, personSchema, webPageSchema } from "./seo/schema";
 import { DEFAULT_OG_IMAGE, absoluteUrl } from "./seo/site";
 
 export type PageMeta = {
@@ -33,6 +36,24 @@ const coffeeBrewingAlternates = {
   "x-default": absoluteUrl(coffeeBrewingAppContent.en.path),
 };
 
+const joseSalcidoAuthor = getAuthor("joseSalcido");
+
+function articleJsonLd(article: typeof v60Article) {
+  return [
+    blogPostingSchema({
+      title: article.title,
+      description: article.description,
+      path: article.path,
+      datePublished: article.datePublished,
+      dateModified: article.dateModified,
+      author: getAuthor(article.authorId),
+      image: article.image,
+      keywords: article.keywords,
+      inLanguage: "es",
+    }),
+  ];
+}
+
 export const routes: SiteRoute[] = [
   {
     path: "/",
@@ -59,6 +80,7 @@ export const routes: SiteRoute[] = [
       "Aprende una receta V60 clara con ratio 1:16, molienda media fina, tiempos de vertido y ajustes para mejorar tu cafe filtrado.",
     canonicalUrl: absoluteUrl("/recetas/v60"),
     ogImage: absoluteUrl(DEFAULT_OG_IMAGE),
+    structuredData: articleJsonLd(v60Article),
     render: () => <SeoArticlePage article={v60Article} />,
   },
   {
@@ -68,6 +90,7 @@ export const routes: SiteRoute[] = [
       "Prepara cafe en prensa francesa con cuerpo, dulzor y menos sedimento usando molienda gruesa, ratio 1:15 y reposo controlado.",
     canonicalUrl: absoluteUrl("/recetas/prensa-francesa"),
     ogImage: absoluteUrl(DEFAULT_OG_IMAGE),
+    structuredData: articleJsonLd(frenchPressArticle),
     render: () => <SeoArticlePage article={frenchPressArticle} />,
   },
   {
@@ -77,7 +100,27 @@ export const routes: SiteRoute[] = [
       "Guia practica para elegir ratios, ajustar molienda y corregir cafe agrio, amargo, delgado o astringente en metodos manuales.",
     canonicalUrl: absoluteUrl("/guias/proporciones-molienda"),
     ogImage: absoluteUrl(DEFAULT_OG_IMAGE),
+    structuredData: articleJsonLd(ratiosGuideArticle),
     render: () => <SeoArticlePage article={ratiosGuideArticle} />,
+  },
+  {
+    path: "/autores/jose-salcido",
+    title: "Jose Salcido | Autor en Ritual Cafe",
+    description:
+      "Jose Salcido, CEO de Culto al Perro Cafe, escribe guias de cafe para Ritual Cafe.",
+    canonicalUrl: absoluteUrl("/autores/jose-salcido"),
+    ogImage: absoluteUrl(DEFAULT_OG_IMAGE),
+    structuredData: [
+      personSchema(joseSalcidoAuthor),
+      webPageSchema({
+        name: "Jose Salcido | Autor en Ritual Cafe",
+        description:
+          "Jose Salcido, CEO de Culto al Perro Cafe, escribe guias de cafe para Ritual Cafe.",
+        url: absoluteUrl("/autores/jose-salcido"),
+        inLanguage: "es",
+      }),
+    ],
+    render: () => <AuthorProfilePage />,
   },
   {
     path: "/coffee-brewing-app",

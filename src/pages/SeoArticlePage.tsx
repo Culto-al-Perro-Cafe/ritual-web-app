@@ -1,3 +1,5 @@
+import { getAuthor, type AuthorId } from "../seo/authors";
+
 type Detail = {
   label: string;
   value: string;
@@ -9,9 +11,16 @@ type Section = {
 };
 
 export type SeoArticle = {
+  path: string;
   kicker: string;
   title: string;
+  description: string;
   intro: string;
+  datePublished: string;
+  dateModified: string;
+  authorId: AuthorId;
+  keywords?: string[];
+  image?: string;
   details: Detail[];
   sections: Section[];
   ctaTitle: string;
@@ -23,6 +32,8 @@ type SeoArticlePageProps = {
 };
 
 export default function SeoArticlePage({ article }: SeoArticlePageProps) {
+  const author = getAuthor(article.authorId);
+
   return (
     <article className="max-w-5xl mx-auto px-6 py-xl space-y-12">
       <header className="border-b-3 border-ink pb-10 space-y-5">
@@ -34,6 +45,9 @@ export default function SeoArticlePage({ article }: SeoArticlePageProps) {
         </h1>
         <p className="font-body-lg text-body-lg text-ink max-w-3xl">
           {article.intro}
+        </p>
+        <p className="font-label-bold text-label-bold uppercase text-ink">
+          Por <a className="text-brand-roast underline decoration-2 underline-offset-4" href={new URL(author.url).pathname}>{author.name}</a>
         </p>
       </header>
 

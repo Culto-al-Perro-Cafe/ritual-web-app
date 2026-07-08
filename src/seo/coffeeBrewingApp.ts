@@ -1,4 +1,5 @@
 import { absoluteUrl } from "./site";
+import { faqPageSchema, softwareApplicationSchema, webPageSchema } from "./schema";
 
 export type CoffeeBrewingAppLocale = "en" | "es";
 
@@ -489,48 +490,24 @@ export function coffeeBrewingAppJsonLd(locale: CoffeeBrewingAppLocale) {
   const url = absoluteUrl(content.path);
 
   return [
-    {
-      "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
+    softwareApplicationSchema({
       name: "Ritual Cafe",
       applicationCategory: "LifestyleApplication",
       operatingSystem: "iOS",
       inLanguage: content.lang,
       url,
       description: content.description,
-      offers: {
-        "@type": "Offer",
-        price: "0",
-        priceCurrency: "USD",
-      },
       featureList: content.keywords,
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "WebPage",
+      price: "0",
+      priceCurrency: "USD",
+    }),
+    webPageSchema({
       name: content.title,
       url,
       inLanguage: content.lang,
       description: content.description,
-      isPartOf: {
-        "@type": "WebSite",
-        name: "Ritual Cafe",
-        url: absoluteUrl("/"),
-      },
       keywords: content.keywords,
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      inLanguage: content.lang,
-      mainEntity: content.faqs.map((faq) => ({
-        "@type": "Question",
-        name: faq.question,
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: faq.answer,
-        },
-      })),
-    },
+    }),
+    faqPageSchema(content.faqs, content.lang),
   ];
 }
