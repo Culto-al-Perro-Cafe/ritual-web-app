@@ -3,6 +3,7 @@ import heroImage from '../assets/v60.png';
 import { posthog } from '../lib/posthog';
 
 const appStoreUrl = 'https://apps.apple.com/us/app/ritual-caf%C3%A9/id6764177904';
+const googlePlayUrl = 'https://play.google.com/store/apps/details?id=cafe.perro.ritualcafe';
 const appStoreBadgeUrl = 'https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/es-mx?size=250x83';
 const googlePlayBadgeUrl = 'https://play.google.com/intl/es-419/badges/static/images/badges/es-419_badge_web_generic.png';
 
@@ -55,20 +56,18 @@ export default function Hero() {
                   src={appStoreBadgeUrl}
                 />
               </a>
-              <button
-                aria-disabled="true"
-                aria-label="Google Play no disponible"
-                className="inline-flex h-[44px] items-center cursor-not-allowed opacity-60 grayscale"
-                disabled
-                type="button"
-                title="Google Play en proceso"
+              <a
+                className="inline-flex h-[44px] items-center shadow-hard active:shadow-none active:translate-x-[2px] active:translate-y-[2px] transition-all"
+                href={googlePlayUrl}
+                aria-label="Descargar en Google Play"
+                onClick={() => posthog.capture('google play download clicked', { platform: 'android' })}
               >
                 <img
                   alt="Disponible en Google Play"
                   className="h-[54px] w-auto"
                   src={googlePlayBadgeUrl}
                 />
-              </button>
+              </a>
             </div>
           )}
         </div>
