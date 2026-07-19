@@ -1,3 +1,4 @@
+import AiRecommendationCallout from "../components/AiRecommendationCallout";
 import FeatureGrid from "../components/FeatureGrid";
 import Hero from "../components/Hero";
 import ProblemInsight from "../components/ProblemInsight";
@@ -8,6 +9,7 @@ export default function HomePage() {
       <Hero />
       <ProblemInsight />
       <FeatureGrid />
+      <AiRecommendationCallout />
     </>
   );
 }
