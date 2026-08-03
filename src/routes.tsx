@@ -4,6 +4,7 @@ import AuthorProfilePage from "./pages/AuthorProfilePage";
 import CoffeeBrewingAppPage from "./pages/CoffeeBrewingAppPage";
 import HomePage from "./pages/HomePage";
 import NotFoundPage from "./pages/NotFoundPage";
+import ContactPage from "./pages/ContactPage";
 import SeoArticlePage from "./pages/SeoArticlePage";
 import { frenchPressArticle, ratiosGuideArticle, v60Article } from "./pages/articles";
 import { getAuthor } from "./seo/authors";
@@ -155,6 +156,15 @@ export const routes: SiteRoute[] = [
     canonicalUrl: absoluteUrl("/privacidad"),
     ogImage: absoluteUrl(DEFAULT_OG_IMAGE),
     render: () => <PrivacyPolicy />,
+  },
+  {
+    path: "/contact",
+    title: "Contactanos | Ritual Cafe",
+    description:
+      "¿Tienes una pregunta, sugerencia o reporte? Escríbenos y te respondemos.",
+    canonicalUrl: absoluteUrl("/contact"),
+    ogImage: absoluteUrl(DEFAULT_OG_IMAGE),
+    render: () => <ContactPage />,
   },
   {
     path: "/404",

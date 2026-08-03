@@ -42,6 +42,16 @@ export default function Hero() {
               Ver cómo funciona
             </button>
           </div>
+          <p className="font-body-md text-ink pt-3">
+            ¿Preguntas?{" "}
+            <a
+              className="underline underline-offset-4 font-label-bold text-label-bold text-brand-origin"
+              href="/contact"
+              onClick={() => posthog.capture("contact cta clicked", { location: "hero", locale: "es" })}
+            >
+              contáctanos
+            </a>
+          </p>
           {showDownloadOptions && (
             <div id="download-options" className="flex flex-wrap gap-4 pt-2">
               <a

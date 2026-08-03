@@ -6,4 +6,5 @@ https://ritual.otfusion.org/*     https://ritual.perro.cafe/:splat     301!
 /es/app-para-preparar-cafe      /es/app-para-preparar-cafe.html      200
 /home                           /home.html                           200
 /privacidad                     /privacidad.html                     200
+/contact                        /contact.html                        200
 /*                              /404.html                           404

@@ -14,6 +14,7 @@ export default function Header() {
         <a className="text-ink border-b-2 border-transparent hover:border-ink transition-all" href="/recetas/v60">V60</a>
         <a className="text-ink border-b-2 border-transparent hover:border-ink transition-all" href="/recetas/prensa-francesa">PRENSA</a>
         <a className="text-ink border-b-2 border-transparent hover:border-ink transition-all" href="/guias/proporciones-molienda">GUIA</a>
+        <a className="text-ink border-b-2 border-transparent hover:border-ink transition-all" href="/contact">CONTACTO</a>
         <a className="text-ink border-b-2 border-transparent hover:border-ink transition-all" href={blogUrl} onClick={() => posthog.capture('blog link clicked', { destination: blogUrl })}>BLOG</a>
       </div>
       <a className="bg-brand-roast text-white border-2 border-ink px-4 py-2 font-label-bold text-label-bold shadow-hard active:shadow-none active:translate-x-[2px] active:translate-y-[2px] transition-all uppercase no-underline" href="/">
