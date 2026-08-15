@@ -116,14 +116,16 @@ function replaceSeoHead(html, meta) {
 
 for (const route of routes) {
   const { html, meta } = render(route.path);
-  const outputPath = routeOutputPath(route.path);
   const pageHtml = replaceSeoHead(template, meta).replace(
     '<div id="root" class="flex-grow flex flex-col"></div>',
     `<div id="root" class="flex-grow flex flex-col">${html}</div>`,
   );
 
-  await mkdir(path.dirname(outputPath), { recursive: true });
-  await writeFile(outputPath, pageHtml);
+  if (route.path !== "/404") {
+    const outputPath = routeOutputPath(route.path);
+    await mkdir(path.dirname(outputPath), { recursive: true });
+    await writeFile(outputPath, pageHtml);
+  }
 
   const htmlOutputPath = routeHtmlOutputPath(route.path);
   if (htmlOutputPath) {

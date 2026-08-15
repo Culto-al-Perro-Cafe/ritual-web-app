@@ -19,7 +19,7 @@ function App({ path = getCurrentPath() }: AppProps) {
 
   return (
     <>
-      <Header />
+      <Header path={page.path} />
       <main className="flex-grow pt-24 pb-32">
         {page.render()}
       </main>

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import heroImage from '../assets/v60.png';
 import { posthog } from '../lib/posthog';
 
@@ -11,13 +11,25 @@ export default function Hero() {
   const [showDownloadOptions, setShowDownloadOptions] = useState(false);
   const [showVideoModal, setShowVideoModal] = useState(false);
 
+  useEffect(() => {
+    const revealDownloadOptions = () => {
+      if (window.location.hash === '#download') {
+        setShowDownloadOptions(true);
+      }
+    };
+
+    revealDownloadOptions();
+    window.addEventListener('hashchange', revealDownloadOptions);
+    return () => window.removeEventListener('hashchange', revealDownloadOptions);
+  }, []);
+
   return (
     <>
       <section className="max-w-6xl mx-auto px-6 py-xl grid grid-cols-1 md:grid-cols-2 gap-xl items-center">
         <div className="space-y-md">
           <h1 className="font-h1 text-[64px] leading-none uppercase text-ink">PREPARA CAFÉ SIN BATALLAR</h1>
           <p className="font-body-lg text-body-lg text-ink">Una app diseñada para seguir el ritual perfecto paso a paso.</p>
-          <div className="flex flex-col sm:flex-row gap-4 pt-4">
+          <div id="download" className="scroll-mt-28 flex flex-col sm:flex-row gap-4 pt-4">
             <button
               aria-expanded={showDownloadOptions}
               aria-controls="download-options"
@@ -52,8 +64,7 @@ export default function Hero() {
               contáctanos
             </a>
           </p>
-          {showDownloadOptions && (
-            <div id="download-options" className="flex flex-wrap gap-4 pt-2">
+          <div id="download-options" className="flex flex-wrap gap-4 pt-2" hidden={!showDownloadOptions}>
               <a
                 className="inline-flex h-[44px] shadow-hard active:shadow-none active:translate-x-[2px] active:translate-y-[2px] transition-all"
                 href={appStoreUrl}
@@ -78,8 +89,7 @@ export default function Hero() {
                   src={googlePlayBadgeUrl}
                 />
               </a>
-            </div>
-          )}
+          </div>
         </div>
         <div className="relative bg-brand-sand border-3 border-ink shadow-hard h-96 flex items-center justify-center p-4 transform translate-x-4 translate-y-4">
           <img 
