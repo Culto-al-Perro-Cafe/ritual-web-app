@@ -3,6 +3,7 @@ import PrivacyPolicy from "./components/PrivacyPolicy";
 import AuthorProfilePage from "./pages/AuthorProfilePage";
 import BlogPage from "./pages/BlogPage";
 import CoffeeBrewingAppPage from "./pages/CoffeeBrewingAppPage";
+import CoffeeRatioCalculatorPage from "./pages/CoffeeRatioCalculatorPage";
 import HomePage from "./pages/HomePage";
 import NotFoundPage from "./pages/NotFoundPage";
 import ContactPage from "./pages/ContactPage";
@@ -16,6 +17,7 @@ import {
 } from "./pages/articles";
 import { getAuthor } from "./seo/authors";
 import { coffeeBrewingAppContent, coffeeBrewingAppJsonLd } from "./seo/coffeeBrewingApp";
+import { coffeeRatioCalculatorContent } from "./seo/coffeeRatioCalculator";
 import { blogPostingSchema, personSchema, webPageSchema } from "./seo/schema";
 import { DEFAULT_OG_IMAGE, absoluteUrl } from "./seo/site";
 
@@ -42,6 +44,12 @@ const coffeeBrewingAlternates = {
   en: absoluteUrl(coffeeBrewingAppContent.en.path),
   es: absoluteUrl(coffeeBrewingAppContent.es.path),
   "x-default": absoluteUrl(coffeeBrewingAppContent.en.path),
+};
+
+const coffeeRatioCalculatorAlternates = {
+  en: absoluteUrl(coffeeRatioCalculatorContent.en.path),
+  es: absoluteUrl(coffeeRatioCalculatorContent.es.path),
+  "x-default": absoluteUrl(coffeeRatioCalculatorContent.en.path),
 };
 
 const aeropressRecipeAlternates = {
@@ -105,6 +113,48 @@ export const routes: SiteRoute[] = [
       }),
     ],
     render: () => <BlogPage />,
+  },
+  {
+    path: coffeeRatioCalculatorContent.es.path,
+    title: coffeeRatioCalculatorContent.es.title,
+    description: coffeeRatioCalculatorContent.es.description,
+    canonicalUrl: absoluteUrl(coffeeRatioCalculatorContent.es.path),
+    ogImage: absoluteUrl(DEFAULT_OG_IMAGE),
+    ogTitle: coffeeRatioCalculatorContent.es.ogTitle,
+    ogDescription: coffeeRatioCalculatorContent.es.ogDescription,
+    lang: "es",
+    alternateLanguages: coffeeRatioCalculatorAlternates,
+    structuredData: [
+      webPageSchema({
+        name: coffeeRatioCalculatorContent.es.title,
+        description: coffeeRatioCalculatorContent.es.description,
+        url: absoluteUrl(coffeeRatioCalculatorContent.es.path),
+        inLanguage: "es",
+        keywords: ["calculadora café agua", "ratio café agua", "proporción café V60", "Ritual Café"],
+      }),
+    ],
+    render: () => <CoffeeRatioCalculatorPage locale="es" />,
+  },
+  {
+    path: coffeeRatioCalculatorContent.en.path,
+    title: coffeeRatioCalculatorContent.en.title,
+    description: coffeeRatioCalculatorContent.en.description,
+    canonicalUrl: absoluteUrl(coffeeRatioCalculatorContent.en.path),
+    ogImage: absoluteUrl(DEFAULT_OG_IMAGE),
+    ogTitle: coffeeRatioCalculatorContent.en.ogTitle,
+    ogDescription: coffeeRatioCalculatorContent.en.ogDescription,
+    lang: "en",
+    alternateLanguages: coffeeRatioCalculatorAlternates,
+    structuredData: [
+      webPageSchema({
+        name: coffeeRatioCalculatorContent.en.title,
+        description: coffeeRatioCalculatorContent.en.description,
+        url: absoluteUrl(coffeeRatioCalculatorContent.en.path),
+        inLanguage: "en",
+        keywords: ["coffee to water ratio calculator", "coffee ratio", "V60 ratio", "Ritual Cafe"],
+      }),
+    ],
+    render: () => <CoffeeRatioCalculatorPage locale="en" />,
   },
   {
     path: "/recetas/v60",

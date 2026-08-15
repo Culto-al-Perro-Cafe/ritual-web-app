@@ -19,7 +19,7 @@ function App({ path = getCurrentPath() }: AppProps) {
 
   return (
     <>
-      <Header path={page.path} />
+      <Header path={page.path} locale={page.lang === "en" ? "en" : "es"} />
       <main className="flex-grow pt-24 pb-32">
         {page.render()}
       </main>

@@ -66,6 +66,11 @@ export const v60Article: SeoArticle = {
   ctaTitle: "Prepara V60 sin memorizar tiempos",
   ctaBody:
     "Ritual Cafe convierte esta receta en una secuencia facil de seguir, con fases, timer y avisos para que puedas concentrarte en verter bien y probar mejor.",
+  relatedCalculator: {
+    body: "¿Cambiaste la dosis o el tamaño de tu taza? Calcula café y agua sin perder el ratio de esta receta V60.",
+    href: "/calculadora-cafe-agua",
+    label: "Abrir calculadora de café y agua",
+  },
 };
 
 export const frenchPressArticle: SeoArticle = {
@@ -134,6 +139,11 @@ export const frenchPressArticle: SeoArticle = {
   ctaTitle: "Haz tu prensa francesa mas consistente",
   ctaBody:
     "Ritual Cafe te guia por fases para que la prensa no dependa de memoria, calculos rapidos o timers improvisados.",
+  relatedCalculator: {
+    body: "Escala tu prensa francesa para una o varias tazas y conserva un ratio de 1:15 como punto de partida.",
+    href: "/calculadora-cafe-agua",
+    label: "Calcular café y agua",
+  },
 };
 
 export const ratiosGuideArticle: SeoArticle = {
@@ -201,6 +211,11 @@ export const ratiosGuideArticle: SeoArticle = {
   ctaTitle: "Convierte los ratios en un ritual facil",
   ctaBody:
     "Ritual Cafe ayuda a seguir proporciones, fases y tiempos sin estar haciendo cuentas mientras el agua ya esta caliente.",
+  relatedCalculator: {
+    body: "Prueba tus ratios con una calculadora que ajusta café o agua al instante para V60, AeroPress y prensa francesa.",
+    href: "/calculadora-cafe-agua",
+    label: "Usar calculadora de café y agua",
+  },
 };
 
 export const aeropressArticle: SeoArticle = {
@@ -276,6 +291,11 @@ export const aeropressArticle: SeoArticle = {
   ctaBody:
     "Ritual Café guía cada fase de tu receta AeroPress para que puedas concentrarte en preparar, probar y repetir una taza que te guste.",
   ctaLabel: "Descargar Ritual Café",
+  relatedCalculator: {
+    body: "¿Quieres preparar una taza más grande o más pequeña? Calcula tu dosis de AeroPress sin cambiar la proporción.",
+    href: "/calculadora-cafe-agua",
+    label: "Usar calculadora de café y agua",
+  },
 };
 
 export const aeropressRecipeArticle: SeoArticle = {
@@ -352,6 +372,11 @@ export const aeropressRecipeArticle: SeoArticle = {
   ctaBody:
     "Ritual Cafe guides each phase of your AeroPress recipe, so you can focus on brewing, tasting, and repeating a cup you enjoy.",
   ctaLabel: "Download Ritual Cafe",
+  relatedCalculator: {
+    body: "Making a larger or smaller cup? Calculate your AeroPress dose without changing the ratio.",
+    href: "/coffee-to-water-ratio-calculator",
+    label: "Use the coffee ratio calculator",
+  },
 };
 
 export const spanishBlogArticles = [

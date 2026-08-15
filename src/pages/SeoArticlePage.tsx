@@ -1,4 +1,5 @@
 import { getAuthor, type AuthorId } from "../seo/authors";
+import ArticleHelpfulFeedback from "../components/ArticleHelpfulFeedback";
 
 type Detail = {
   label: string;
@@ -27,6 +28,11 @@ export type SeoArticle = {
   ctaTitle: string;
   ctaBody: string;
   ctaLabel?: string;
+  relatedCalculator?: {
+    body: string;
+    href: string;
+    label: string;
+  };
 };
 
 type SeoArticlePageProps = {
@@ -35,6 +41,7 @@ type SeoArticlePageProps = {
 
 export default function SeoArticlePage({ article }: SeoArticlePageProps) {
   const author = getAuthor(article.authorId);
+  const locale = article.path.startsWith("/recipes/") ? "en" : "es";
 
   return (
     <article className="max-w-5xl mx-auto px-6 py-xl space-y-12">
@@ -79,6 +86,17 @@ export default function SeoArticlePage({ article }: SeoArticlePageProps) {
           </section>
         ))}
       </div>
+
+      {article.relatedCalculator ? (
+        <aside className="border-2 border-ink bg-brand-ivory shadow-hard p-6 space-y-3">
+          <p className="font-body-md text-body-md text-ink leading-7">{article.relatedCalculator.body}</p>
+          <a className="font-label-bold text-label-bold uppercase text-brand-origin underline decoration-2 underline-offset-4" href={article.relatedCalculator.href}>
+            {article.relatedCalculator.label}
+          </a>
+        </aside>
+      ) : null}
+
+      <ArticleHelpfulFeedback articlePath={article.path} articleTitle={article.title} locale={locale} />
 
       <aside className="bg-brand-sand border-2 border-ink shadow-hard p-6 md:p-8 space-y-3">
         <h2 className="font-h3 text-h3 text-ink">{article.ctaTitle}</h2>

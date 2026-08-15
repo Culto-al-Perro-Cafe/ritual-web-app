@@ -9,6 +9,42 @@
 }
 
 @layer utilities {
+  @keyframes coffee-cup {
+    0%, 100% { transform: rotate(0) translateY(0); }
+    35% { transform: rotate(-12deg) translateY(-3px); }
+    65% { transform: rotate(9deg) translateY(-1px); }
+  }
+
+  @keyframes coffee-steam {
+    0%, 100% { transform: translateY(0); opacity: 0.6; }
+    50% { transform: translateY(-3px); opacity: 1; }
+  }
+
+  @keyframes feedback-thanks {
+    from { transform: translateY(5px) scale(0.96); opacity: 0; }
+    to { transform: translateY(0) scale(1); opacity: 1; }
+  }
+
+  .animate-coffee-cup {
+    animation: coffee-cup 650ms cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  .animate-coffee-steam {
+    animation: coffee-steam 1.2s ease-in-out infinite;
+  }
+
+  .animate-feedback-thanks {
+    animation: feedback-thanks 380ms ease-out both;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .animate-coffee-cup,
+    .animate-coffee-steam,
+    .animate-feedback-thanks {
+      animation: none;
+    }
+  }
+
   .border-ink {
     border-color: #222222;
   }

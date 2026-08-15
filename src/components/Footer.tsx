@@ -8,6 +8,7 @@ export default function Footer() {
         <a className="no-underline opacity-80 hover:opacity-100 hover:text-brand-roast transition-colors" href="/recetas/v60">Receta V60</a>
         <a className="no-underline opacity-80 hover:opacity-100 hover:text-brand-roast transition-colors" href="/recetas/prensa-francesa">Prensa francesa</a>
         <a className="no-underline opacity-80 hover:opacity-100 hover:text-brand-roast transition-colors" href="/guias/proporciones-molienda">Proporciones</a>
+        <a className="no-underline opacity-80 hover:opacity-100 hover:text-brand-roast transition-colors" href="/calculadora-cafe-agua">Calculadora</a>
         <a className="no-underline opacity-80 hover:opacity-100 hover:text-brand-roast transition-colors" href="/contact">Contacto</a>
         <a className="no-underline opacity-80 hover:opacity-100 hover:text-brand-roast transition-colors" href="/blog">Blog</a>
         <a className="no-underline opacity-80 hover:opacity-100 hover:text-brand-roast transition-colors" href="/privacidad">Privacidad</a>
