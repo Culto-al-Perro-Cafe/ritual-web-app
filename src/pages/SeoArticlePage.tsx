@@ -21,10 +21,12 @@ export type SeoArticle = {
   authorId: AuthorId;
   keywords?: string[];
   image?: string;
+  bylinePrefix?: string;
   details: Detail[];
   sections: Section[];
   ctaTitle: string;
   ctaBody: string;
+  ctaLabel?: string;
 };
 
 type SeoArticlePageProps = {
@@ -47,7 +49,8 @@ export default function SeoArticlePage({ article }: SeoArticlePageProps) {
           {article.intro}
         </p>
         <p className="font-label-bold text-label-bold uppercase text-ink">
-          Por <a className="text-brand-roast underline decoration-2 underline-offset-4" href={new URL(author.url).pathname}>{author.name}</a>
+          {article.bylinePrefix ?? "Por"}{" "}
+          <a className="text-brand-roast underline decoration-2 underline-offset-4" href={new URL(author.url).pathname}>{author.name}</a>
         </p>
       </header>
 
@@ -84,7 +87,7 @@ export default function SeoArticlePage({ article }: SeoArticlePageProps) {
           className="inline-block bg-brand-roast text-white border-2 border-ink px-5 py-3 font-label-bold text-label-bold shadow-hard active:shadow-none active:translate-x-[2px] active:translate-y-[2px] transition-all uppercase"
           href="/"
         >
-          Descargar Ritual Cafe
+          {article.ctaLabel ?? "Descargar Ritual Cafe"}
         </a>
       </aside>
     </article>

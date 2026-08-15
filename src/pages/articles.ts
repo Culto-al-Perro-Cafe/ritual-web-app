@@ -202,3 +202,161 @@ export const ratiosGuideArticle: SeoArticle = {
   ctaBody:
     "Ritual Cafe ayuda a seguir proporciones, fases y tiempos sin estar haciendo cuentas mientras el agua ya esta caliente.",
 };
+
+export const aeropressArticle: SeoArticle = {
+  path: "/recetas/aeropress",
+  kicker: "Receta gratis",
+  title: "Receta AeroPress fácil: café limpio y dulce en casa",
+  description:
+    "Prepara café en AeroPress con 15 g de café, 230 g de agua y 2 minutos de infusión. Una receta fácil para una taza limpia y dulce.",
+  intro:
+    "Esta receta AeroPress para principiantes da una taza limpia, dulce y con buen cuerpo sin necesitar una técnica complicada. Es una base confiable para una taza diaria: pesa, vierte, espera dos minutos y presiona con calma.",
+  datePublished: "2026-08-14",
+  dateModified: "2026-08-14",
+  authorId: "joseSalcido",
+  keywords: [
+    "receta AeroPress",
+    "cómo preparar café en AeroPress",
+    "café AeroPress fácil",
+    "receta AeroPress para principiantes",
+    "Ritual Cafe",
+  ],
+  details: [
+    { label: "Método", value: "AeroPress" },
+    { label: "Ratio", value: "1:15" },
+    { label: "Tiempo", value: "2:00" },
+    { label: "Molienda", value: "Media fina" },
+  ],
+  sections: [
+    {
+      title: "Por qué esta receta AeroPress funciona para empezar",
+      body: [
+        "La AeroPress es un método amable para aprender porque combina inmersión y una presión suave. El café tiene tiempo de extraerse antes de pasar por el filtro, y el papel retiene la mayor parte de los sedimentos. El resultado puede sentirse redondo como una inmersión, pero más limpio que una prensa francesa.",
+        "Esta receta evita movimientos difíciles y proporciones extremas. Usa 15 gramos de café y 230 gramos de agua, una relación 1:15 que mantiene suficiente dulzor y cuerpo para una taza cotidiana. Cuando ya conozcas cómo sabe con tu café y tu molino, tendrás una referencia simple desde la cual ajustar.",
+      ],
+    },
+    {
+      title: "Equipo e ingredientes",
+      body: [
+        "Necesitas una AeroPress, un filtro de papel, una taza o jarra resistente al calor, báscula, timer, cuchara y café recién molido. También ayuda tener una tetera, aunque cualquier recipiente que permita verter con cuidado funciona. Esta receta usa el método estándar: la AeroPress se coloca sobre la taza, no hace falta voltearla.",
+        "Pesa 15 gramos de café y 230 gramos de agua. Calienta el agua a 92 a 94 grados Celsius; si no tienes termómetro, deja reposar el agua hervida alrededor de un minuto. Elige una molienda media fina, parecida a arena un poco más gruesa. Debe permitir una presión suave, nunca forzada.",
+      ],
+    },
+    {
+      title: "Receta AeroPress paso a paso",
+      body: [
+        "Coloca un filtro de papel en la tapa y enjuágalo con agua caliente. Esto quita cualquier sabor a papel y precalienta tu taza. Enrosca la tapa, pon la AeroPress sobre la taza y agrega los 15 gramos de café. Nivela suavemente para que todo el café reciba agua al inicio.",
+        "Inicia el timer y vierte los 230 gramos de agua en unos 20 segundos. Asegúrate de mojar todo el café; después, revuelve cinco veces de forma suave. Coloca el émbolo apenas dentro de la cámara para crear un pequeño sello y evitar que el café gotee demasiado rápido.",
+        "Espera hasta llegar a 1:30. Retira el émbolo y revuelve una vez más para despegar el café de las paredes. Vuelve a colocarlo y presiona con una fuerza constante entre el 1:30 y el 2:00. Detente cuando escuches el silbido: seguir presionando añade partículas finas y no mejora la taza.",
+      ],
+    },
+    {
+      title: "Cómo ajustar el sabor de tu café",
+      body: [
+        "Si la taza sabe agria, delgada o poco dulce, prueba una molienda un poco más fina. También puedes usar agua ligeramente más caliente o extender la inmersión 15 segundos. Haz solo un cambio por preparación; así sabrás qué fue lo que acercó la taza al sabor que buscas.",
+        "Si el café sabe amargo, seco o cuesta mucho presionar, muele un poco más grueso. No compenses una molienda muy fina con más fuerza: la presión debe sentirse tranquila y continua. Si quieres una taza más intensa, usa 15 gramos de café con 210 gramos de agua antes de cambiar varios ajustes a la vez.",
+      ],
+    },
+    {
+      title: "Errores comunes al preparar AeroPress",
+      body: [
+        "No olvides enjuagar el filtro. Es un paso corto que mejora el sabor y ayuda a que la tapa se selle bien. Otro error común es usar agua recién hervida con un tueste oscuro: puede acentuar amargor. Esperar un poco antes de verter suele producir una taza más amable.",
+        "La presión también importa. Si necesitas apoyarte con todo tu peso, detente y revisa la molienda en la siguiente preparación. La AeroPress no necesita fuerza para hacer buen café. Una presión lenta protege la taza, la AeroPress y tu rutina de la mañana.",
+      ],
+    },
+    {
+      title: "Sigue esta receta con Ritual Café",
+      body: [
+        "Ritual Café convierte los pasos de esta receta AeroPress en una secuencia clara: verter, revolver, esperar y presionar. En vez de recordar el momento del segundo movimiento o mirar un timer separado, recibes la siguiente indicación cuando la necesitas.",
+        "Guarda esta receta como tu punto de partida: 15 gramos de café, 230 gramos de agua, molienda media fina y dos minutos totales. Después de cada taza, cambia una variable con intención y guarda una nota de lo que funcionó. Repetir una buena taza se vuelve mucho más fácil cuando la receta y el timer están juntos.",
+      ],
+    },
+  ],
+  ctaTitle: "Prepara AeroPress sin seguir viendo el reloj",
+  ctaBody:
+    "Ritual Café guía cada fase de tu receta AeroPress para que puedas concentrarte en preparar, probar y repetir una taza que te guste.",
+  ctaLabel: "Descargar Ritual Café",
+};
+
+export const aeropressRecipeArticle: SeoArticle = {
+  path: "/recipes/aeropress-recipe",
+  kicker: "Free recipe",
+  title: "Easy AeroPress Recipe for Clean, Sweet Coffee at Home",
+  description:
+    "Make clean, sweet AeroPress coffee with 15 g coffee, 230 g water, a medium-fine grind, and a two-minute brew time. An easy beginner recipe.",
+  intro:
+    "This beginner AeroPress recipe makes a clean, sweet cup with satisfying body and no complicated technique. It is a dependable daily starting point: weigh, pour, wait two minutes, and press gently.",
+  datePublished: "2026-08-14",
+  dateModified: "2026-08-14",
+  authorId: "joseSalcido",
+  bylinePrefix: "By",
+  keywords: [
+    "AeroPress recipe",
+    "easy AeroPress recipe",
+    "how to make AeroPress coffee",
+    "AeroPress recipe for beginners",
+    "Ritual Cafe",
+  ],
+  details: [
+    { label: "Method", value: "AeroPress" },
+    { label: "Ratio", value: "1:15" },
+    { label: "Brew time", value: "2:00" },
+    { label: "Grind", value: "Medium-fine" },
+  ],
+  sections: [
+    {
+      title: "Why this AeroPress recipe is a good place to start",
+      body: [
+        "The AeroPress is a forgiving way to learn because it combines immersion with gentle pressure. The coffee has time to extract before it passes through the filter, while the paper keeps most sediment out of the cup. You get some of the roundness of immersion brewing with a cleaner finish than a French press.",
+        "This recipe skips difficult movements and extreme ratios. Fifteen grams of coffee and 230 grams of water makes a 1:15 brew: enough sweetness and body for an everyday cup. Once you know how that tastes with your coffee and grinder, you have a simple reference point for making one thoughtful adjustment at a time.",
+      ],
+    },
+    {
+      title: "What you need",
+      body: [
+        "Gather an AeroPress, paper filter, heat-safe mug or server, scale, timer, spoon, and freshly ground coffee. A kettle helps, but any vessel that lets you pour carefully is fine. This is the standard method, with the AeroPress sitting on your mug, so there is no need to use the inverted setup.",
+        "Measure 15 grams of coffee and 230 grams of water. Heat the water to 92 to 94 degrees Celsius, or let boiling water sit for about a minute if you do not have a thermometer. Start with a medium-fine grind, similar to sand that is just slightly coarse. It should let you press smoothly, never forcefully.",
+      ],
+    },
+    {
+      title: "Easy AeroPress recipe: step by step",
+      body: [
+        "Put a paper filter in the cap and rinse it with hot water. This removes paper flavor and warms your mug. Twist the cap on, place the AeroPress over the mug, and add the 15 grams of coffee. Give the brewer a small tap to level the grounds so they all meet water at the start.",
+        "Start your timer and pour in all 230 grams of water over about 20 seconds. Make sure every ground is wet, then stir gently five times. Rest the plunger just inside the chamber to create a light seal and keep the coffee from dripping through too quickly.",
+        "Wait until 1:30. Remove the plunger and give the brew one more gentle stir to release grounds from the wall. Replace the plunger and press steadily from 1:30 to 2:00. Stop when you hear the hiss; pressing past it sends fine particles into the cup without making it taste better.",
+      ],
+    },
+    {
+      title: "How to adjust the taste",
+      body: [
+        "If the cup tastes sour, thin, or not very sweet, grind a little finer. You can also use slightly hotter water or steep for 15 seconds longer. Change just one thing per brew so you can tell what actually moved the cup toward the flavor you want.",
+        "If the coffee tastes bitter, dry, or takes too much effort to press, grind a little coarser. Do not try to fix a very fine grind by pushing harder: pressing should feel calm and steady. For a stronger cup, use 15 grams of coffee with 210 grams of water before changing several variables at once.",
+      ],
+    },
+    {
+      title: "Common AeroPress mistakes",
+      body: [
+        "Do not skip rinsing the filter. It takes a moment, improves the flavor, and helps the cap seal securely. Another common mistake is using water straight off the boil with a dark roast, which can emphasize bitterness. Letting the water cool briefly usually makes the cup gentler.",
+        "Pressure matters too. If you need to lean your whole body weight into the plunger, stop and make the grind coarser next time. Good AeroPress coffee does not require force. A slow, easy press is better for your coffee, brewer, and morning routine.",
+      ],
+    },
+    {
+      title: "Follow the recipe with Ritual Cafe",
+      body: [
+        "Ritual Cafe turns this AeroPress recipe into a clear sequence: pour, stir, wait, and press. Instead of remembering when to make the second stir or watching a separate timer, you get the next cue when you need it.",
+        "Save this as your starting recipe: 15 grams of coffee, 230 grams of water, a medium-fine grind, and two minutes total. Then change one variable intentionally after each cup and save a note about what worked. Repeating a cup you love is easier when the recipe and timer live together.",
+      ],
+    },
+  ],
+  ctaTitle: "Brew AeroPress without watching the clock",
+  ctaBody:
+    "Ritual Cafe guides each phase of your AeroPress recipe, so you can focus on brewing, tasting, and repeating a cup you enjoy.",
+  ctaLabel: "Download Ritual Cafe",
+};
+
+export const spanishBlogArticles = [
+  aeropressArticle,
+  v60Article,
+  frenchPressArticle,
+  ratiosGuideArticle,
+];

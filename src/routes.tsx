@@ -1,12 +1,19 @@
 import type { ReactElement } from "react";
 import PrivacyPolicy from "./components/PrivacyPolicy";
 import AuthorProfilePage from "./pages/AuthorProfilePage";
+import BlogPage from "./pages/BlogPage";
 import CoffeeBrewingAppPage from "./pages/CoffeeBrewingAppPage";
 import HomePage from "./pages/HomePage";
 import NotFoundPage from "./pages/NotFoundPage";
 import ContactPage from "./pages/ContactPage";
 import SeoArticlePage from "./pages/SeoArticlePage";
-import { frenchPressArticle, ratiosGuideArticle, v60Article } from "./pages/articles";
+import {
+  aeropressArticle,
+  aeropressRecipeArticle,
+  frenchPressArticle,
+  ratiosGuideArticle,
+  v60Article,
+} from "./pages/articles";
 import { getAuthor } from "./seo/authors";
 import { coffeeBrewingAppContent, coffeeBrewingAppJsonLd } from "./seo/coffeeBrewingApp";
 import { blogPostingSchema, personSchema, webPageSchema } from "./seo/schema";
@@ -37,9 +44,15 @@ const coffeeBrewingAlternates = {
   "x-default": absoluteUrl(coffeeBrewingAppContent.en.path),
 };
 
+const aeropressRecipeAlternates = {
+  es: absoluteUrl(aeropressArticle.path),
+  en: absoluteUrl(aeropressRecipeArticle.path),
+  "x-default": absoluteUrl(aeropressArticle.path),
+};
+
 const joseSalcidoAuthor = getAuthor("joseSalcido");
 
-function articleJsonLd(article: typeof v60Article) {
+function articleJsonLd(article: typeof v60Article, inLanguage = "es") {
   return [
     blogPostingSchema({
       title: article.title,
@@ -50,7 +63,7 @@ function articleJsonLd(article: typeof v60Article) {
       author: getAuthor(article.authorId),
       image: article.image,
       keywords: article.keywords,
-      inLanguage: "es",
+      inLanguage,
     }),
   ];
 }
@@ -73,6 +86,25 @@ export const routes: SiteRoute[] = [
     robots: "noindex, follow",
     includeInSitemap: false,
     render: () => <HomePage />,
+  },
+  {
+    path: "/blog",
+    title: "Blog de café: recetas y guías | Ritual Cafe",
+    description:
+      "Encuentra recetas de café, guías de molienda y proporciones para preparar una taza más clara, dulce y repetible en casa.",
+    canonicalUrl: absoluteUrl("/blog"),
+    ogImage: absoluteUrl(DEFAULT_OG_IMAGE),
+    structuredData: [
+      webPageSchema({
+        name: "Blog de café: recetas y guías | Ritual Cafe",
+        description:
+          "Recetas de café, guías de molienda y proporciones para preparar mejor café en casa.",
+        url: absoluteUrl("/blog"),
+        inLanguage: "es",
+        keywords: ["recetas de café", "guías de café", "Ritual Cafe"],
+      }),
+    ],
+    render: () => <BlogPage />,
   },
   {
     path: "/recetas/v60",
@@ -103,6 +135,28 @@ export const routes: SiteRoute[] = [
     ogImage: absoluteUrl(DEFAULT_OG_IMAGE),
     structuredData: articleJsonLd(ratiosGuideArticle),
     render: () => <SeoArticlePage article={ratiosGuideArticle} />,
+  },
+  {
+    path: aeropressArticle.path,
+    title: "Receta AeroPress fácil para principiantes | Ritual Café",
+    description: aeropressArticle.description,
+    canonicalUrl: absoluteUrl(aeropressArticle.path),
+    ogImage: absoluteUrl(DEFAULT_OG_IMAGE),
+    lang: "es",
+    alternateLanguages: aeropressRecipeAlternates,
+    structuredData: articleJsonLd(aeropressArticle),
+    render: () => <SeoArticlePage article={aeropressArticle} />,
+  },
+  {
+    path: aeropressRecipeArticle.path,
+    title: "Easy AeroPress Recipe for Beginners | Ritual Cafe",
+    description: aeropressRecipeArticle.description,
+    canonicalUrl: absoluteUrl(aeropressRecipeArticle.path),
+    ogImage: absoluteUrl(DEFAULT_OG_IMAGE),
+    lang: "en",
+    alternateLanguages: aeropressRecipeAlternates,
+    structuredData: articleJsonLd(aeropressRecipeArticle, "en"),
+    render: () => <SeoArticlePage article={aeropressRecipeArticle} />,
   },
   {
     path: "/autores/jose-salcido",

@@ -1,6 +1,4 @@
 export default function Footer() {
-  const blogUrl = "https://www.perro.cafe/blogs/recetas";
-
   return (
     <footer className="w-full py-12 px-8 flex flex-col md:flex-row justify-between items-center gap-8 bg-brand-sand border-t-3 border-ink">
       <div className="text-xl font-black uppercase text-ink font-h3">
@@ -11,7 +9,7 @@ export default function Footer() {
         <a className="no-underline opacity-80 hover:opacity-100 hover:text-brand-roast transition-colors" href="/recetas/prensa-francesa">Prensa francesa</a>
         <a className="no-underline opacity-80 hover:opacity-100 hover:text-brand-roast transition-colors" href="/guias/proporciones-molienda">Proporciones</a>
         <a className="no-underline opacity-80 hover:opacity-100 hover:text-brand-roast transition-colors" href="/contact">Contacto</a>
-        <a className="no-underline opacity-80 hover:opacity-100 hover:text-brand-roast transition-colors" href={blogUrl}>Blog</a>
+        <a className="no-underline opacity-80 hover:opacity-100 hover:text-brand-roast transition-colors" href="/blog">Blog</a>
         <a className="no-underline opacity-80 hover:opacity-100 hover:text-brand-roast transition-colors" href="/privacidad">Privacidad</a>
       </div>
       <div className="font-serif italic text-sm text-ink opacity-80">
